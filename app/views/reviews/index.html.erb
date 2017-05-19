@@ -1,0 +1,25 @@
+<h1>Welcome <%= session[:user_alias] %></h1>
+
+<h3>Recent book reviews</h3>
+<!-- 	@recents refers to 3 most recent created_at in reviews
+		reviews has reference to books -->
+		<h1>here's the recents</h1>
+		<%= @recents %>
+		<h1>here's the recents</h1>
+<% @recents[0].each do |recent| %>
+	<a href=""><%= recent.book.title %></a><br>
+	rating: <%= recent.rating %><br>
+	<%= recent.user.alias %> said: <%= recent.description %><br>
+
+<% end %>
+<hr>
+
+<h3>The rest of books with reviews</h3>
+<%= @books %>
+<% @books[0].each do |book| %>
+
+	<a href=""><%= book.book.title %></a><br>
+<% end %>
+<hr>
+<a href="">Logout</a>
+<a href="">Add Book and review</a>
